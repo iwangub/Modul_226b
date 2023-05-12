@@ -73,14 +73,13 @@ public class ControllerUnit2 {
 	 * break; case 7: jmz(operand); break; case 8: hlt(); break; default: throw new
 	 * IllegalArgumentException("Unknown opcode: " + opcode); } } }
 	 */
+	
 
-	public void run() {
+	public void run(int cmd, int operand) {
 
 		System.out.println("Starting Run Method");
-		int command = 0;
-		int operand = 0;
 
-		switch (command) {
+		switch (cmd) {
 		case 0:
 			// LDA
 			lda(operand);
@@ -118,7 +117,7 @@ public class ControllerUnit2 {
 			hlt();
 			break;
 		default:
-			throw new IllegalArgumentException("Unknown opcode: " + command);
+			throw new IllegalArgumentException("Unknown opcode: " + cmd);
 		}
 	}
 }
