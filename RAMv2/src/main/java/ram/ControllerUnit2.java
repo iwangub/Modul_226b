@@ -61,63 +61,46 @@ public class ControllerUnit2 {
 		programCounter = -1; // stoppt die Ausführung
 	}
 
-	/*
-	 * public void run() { while (programCounter >= 0) { int instruction =
-	 * memory.read(programCounter); int opcode = instruction / 100; // extract
-	 * opcode from instruction int operand = instruction % 100; // extract operand
-	 * from instruction
-	 * 
-	 * switch (opcode) { case 0: lda(operand); break; case 1: ldi(operand); break;
-	 * case 2: sta(operand); break; case 3: sti(operand); break; case 4:
-	 * add(operand); break; case 5: sub(operand); break; case 6: jmp(operand);
-	 * break; case 7: jmz(operand); break; case 8: hlt(); break; default: throw new
-	 * IllegalArgumentException("Unknown opcode: " + opcode); } } }
-	 */
-	
-
-	public void run(int cmd, int operand) {
-
-		System.out.println("Starting Run Method");
-
+	public void run(String cmd, int operand) {
 		switch (cmd) {
-		case 0:
+		case "LDA":
 			// LDA
 			lda(operand);
 			break;
-		case 1:
+		case "LDI":
 			// LDI
 			ldi(operand);
 			break;
-		case 2:
+		case "STA":
 			// STA
 			sta(operand);
 			break;
-		case 3:
+		case "STI":
 			// STI
 			sti(operand);
 			break;
-		case 4:
+		case "ADD":
 			// ADD
 			add(operand);
 			break;
-		case 5:
+		case "SUB":
 			// SUB
 			sub(operand);
 			break;
-		case 6:
+		case "JMP":
 			// JMP
 			jmp(operand);
 			break;
-		case 7:
+		case "JMZ":
 			// JMZ
 			jmz(operand);
 			break;
-		case 8:
+		case "HLT":
 			// HLT
 			hlt();
 			break;
 		default:
-			throw new IllegalArgumentException("Unknown opcode: " + cmd);
+			throw new IllegalArgumentException("Unknown command: " + cmd);
 		}
 	}
 }
