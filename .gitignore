@@ -1,0 +1,65 @@
+# Maven build files
+target/
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+*.classpath
+*.project
+
+# Logs and temporary files
+log/
+logs/
+*.log
+*.swp
+*.bak
+*.tmp
+*.tmp.*
+*.~lock.*
+*.log.*
+*.pid
+
+# Docs
+doc/
+docs/
+
+# Compiled class files
+*.class
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# Eclipse
+*.settings/
+*.metadata/
+*.classpath
+*.project
+*.tmp/
+*.bak/
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# Mac files
+.DS_Store
+
+# Gradle build files
+build/
+.gradle/
+
+# Intellij build files
+out/
+*.iml
+*.ipr
+*.iws
+.idea/
