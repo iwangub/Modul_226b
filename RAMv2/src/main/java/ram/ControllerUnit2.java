@@ -49,6 +49,7 @@ public class ControllerUnit2 {
 	}
 
 	public void jmz(int address) {
+		System.out.println("jmz!");
 		if (accumulator.get() == 0) {
 			programCounter = address;
 		} else {
@@ -60,55 +61,64 @@ public class ControllerUnit2 {
 		programCounter = -1; // stoppt die Ausführung
 	}
 
-	public void run() {
-		while (programCounter >= 0) {
-			int instruction = memory.read(programCounter);
-			int opcode = instruction >> 16;
-			int operand = instruction & 0xFFFF;
+	/*
+	 * public void run() { while (programCounter >= 0) { int instruction =
+	 * memory.read(programCounter); int opcode = instruction / 100; // extract
+	 * opcode from instruction int operand = instruction % 100; // extract operand
+	 * from instruction
+	 * 
+	 * switch (opcode) { case 0: lda(operand); break; case 1: ldi(operand); break;
+	 * case 2: sta(operand); break; case 3: sti(operand); break; case 4:
+	 * add(operand); break; case 5: sub(operand); break; case 6: jmp(operand);
+	 * break; case 7: jmz(operand); break; case 8: hlt(); break; default: throw new
+	 * IllegalArgumentException("Unknown opcode: " + opcode); } } }
+	 */
 
-			switch (opcode) {
-			case 0:
-				// LDA
-				lda(operand);
-				break;
-			case 1:
-				// LDI
-				ldi(operand);
-				break;
-			case 2:
-				// STA
-				sta(operand);
-				break;
-			case 3:
-				// STI
-				sti(operand);
-				break;
-			case 4:
-				// ADD
-				add(operand);
-				break;
-			case 5:
-				// SUB
-				sub(operand);
-				break;
-			case 6:
-				// JMP
-				jmp(operand);
-				break;
-			case 7:
-				// JMZ
-				jmz(operand);
-				break;
-			case 8:
-				// HLT
-				hlt();
-				break;
-			default:
-				throw new IllegalArgumentException("Unknown opcode: " + opcode);
-			}
+	public void run() {
+
+		System.out.println("Starting Run Method");
+		int command = 0;
+		int operand = 0;
+
+		switch (command) {
+		case 0:
+			// LDA
+			lda(operand);
+			break;
+		case 1:
+			// LDI
+			ldi(operand);
+			break;
+		case 2:
+			// STA
+			sta(operand);
+			break;
+		case 3:
+			// STI
+			sti(operand);
+			break;
+		case 4:
+			// ADD
+			add(operand);
+			break;
+		case 5:
+			// SUB
+			sub(operand);
+			break;
+		case 6:
+			// JMP
+			jmp(operand);
+			break;
+		case 7:
+			// JMZ
+			jmz(operand);
+			break;
+		case 8:
+			// HLT
+			hlt();
+			break;
+		default:
+			throw new IllegalArgumentException("Unknown opcode: " + command);
 		}
 	}
-
-
-
 }

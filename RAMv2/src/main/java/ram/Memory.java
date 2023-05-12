@@ -21,8 +21,7 @@ public class Memory {
 			System.out.println("Address " + i + ": " + memory[i]);
 		}
 	}
-	
-	
+		
 	
 	public static void main(String[] args) {
 		Memory ram = new Memory(5);
