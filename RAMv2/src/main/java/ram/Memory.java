@@ -21,15 +21,5 @@ public class Memory {
 			System.out.println("Address " + i + ": " + memory[i]);
 		}
 	}
-		
-	
-	public static void main(String[] args) {
-		Memory ram = new Memory(5);
-		ram.write(0, 100);
-		System.out.println("Value at address 0: " + ram.read(0));
 
-		System.out.println("Printing whole Memory");
-		ram.print();
-	}
-	
 }

@@ -4,7 +4,9 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		System.out.println("old main");
+		String[] cmds = { "LDA 1", "ADD 1" };
+
+		Program ram = new Program(cmds);
 
 	}
 

@@ -49,16 +49,20 @@ public class ControllerUnit2 {
 	}
 
 	public void jmz(int address) {
-		System.out.println("jmz!");
 		if (accumulator.get() == 0) {
 			programCounter = address;
 		} else {
 			programCounter++;
 		}
 	}
+	
+	public int getProgramCounter() {
+		//System.out.println(programCounter);
+		return programCounter;
+	}
 
 	public void hlt() {
-		programCounter = -1; // stoppt die Ausführung
+		programCounter = -1;
 	}
 
 	public void run(String cmd, int operand) {
