@@ -5,12 +5,12 @@ import java.io.IOException;
 
 public class Program {
 
-	public Program(String[] instructions, String[] mem) {
+	public Program(String filename, String[] instructions, String[] mem) {
 
-		Memory memory = new Memory(512);
+		Memory memory = new Memory(16);
         Accumulator accumulator = new Accumulator();
         ControllerUnit controllerUnit = new ControllerUnit(memory, accumulator);
-        Printer printer = new Printer("output.txt");
+        Printer printer = new Printer(filename);
 
         // Prozessiere den Speicher
         for (int i = 0; i < mem.length; i++) {
@@ -21,14 +21,18 @@ public class Program {
 
         // Prozessiere das Array der Anweisungen
         for (int i = 0; i < instructions.length; i++) {
-            String[] cmd = instructions[i].split("\\s+");
+            /**
+             * String auseinander nehmen
+             */
+        	String[] cmd = instructions[i].split("\\s+");
+
             printer.printStep(controllerUnit.getProgramCounter(), cmd[0], Integer.parseInt(cmd[1]), accumulator.get(), memory);
 
             controllerUnit.run(cmd[0], Integer.parseInt(cmd[1]));
         }
 
         printer.printFooter(accumulator.get(), controllerUnit.getProgramCounter());
-        System.out.println("Output wurde in die Datei 'output.txt' geschrieben.");
+        System.out.println("Output wurde in die Datei '" + filename + "' geschrieben.");
     }
 
 	

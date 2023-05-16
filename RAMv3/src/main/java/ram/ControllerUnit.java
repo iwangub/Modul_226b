@@ -62,7 +62,8 @@ public class ControllerUnit {
 	}
 
 	public void hlt() {
-		programCounter = -1;
+		return;
+		//programCounter = -1;
 	}
 
 	public void run(String cmd, int operand) {

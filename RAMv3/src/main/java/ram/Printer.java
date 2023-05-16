@@ -22,7 +22,7 @@ public class Printer {
     }
 
     public void printStep(int programCounter, String instruction, int operand, int accumulator, Memory memory) {
-        writer.print(programCounter + "\t\t\t" + instruction + "\t\t" + operand + "\t\t" + accumulator + "\t\t");
+        writer.print(programCounter + "\t\t" + instruction + "\t\t" + operand + "\t\t" + accumulator + "\t");
         for (int j = 0; j < memory.getMemorySize(); j++) {
             writer.print(memory.read(j) + " ");
         }
@@ -32,7 +32,7 @@ public class Printer {
     public void printFooter(int result, int programCounter) {
         writer.println("----------------------------------------------------------------");
         writer.println("Programmende:");
-        writer.println("Result: " + result);
+        writer.println("Accumulator: " + result);
         writer.println("Programmcounter: " + programCounter);
         writer.close();
     }
