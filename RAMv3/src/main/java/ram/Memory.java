@@ -22,4 +22,8 @@ public class Memory {
 		}
 	}
 
+	public int getMemorySize() {
+		return memory.length;
+	}
+
 }

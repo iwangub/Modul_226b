@@ -8,34 +8,30 @@ public class Program {
 	public Program(String[] instructions, String[] mem) {
 
 		Memory memory = new Memory(512);
-		Accumulator accumulator = new Accumulator();
-		ControllerUnit controllerUnit = new ControllerUnit(memory, accumulator);
+        Accumulator accumulator = new Accumulator();
+        ControllerUnit controllerUnit = new ControllerUnit(memory, accumulator);
+        Printer printer = new Printer("output.txt");
 
-		// Prozessiere den Speicher
-		for (int i = 0; i < mem.length; i++) {
-			memory.write(i, Integer.parseInt(mem[i]));
-		}
+        // Prozessiere den Speicher
+        for (int i = 0; i < mem.length; i++) {
+            memory.write(i, Integer.parseInt(mem[i]));
+        }
 
-		// Prozessiere das Array der Anweisungen
-		for (int i = 0; i < instructions.length; i++) {
-			String[] cmd = instructions[i].split("\\s+");
-			controllerUnit.run(cmd[0], Integer.parseInt(cmd[1]));
-		}
+        printer.printHeader();
 
-		// Schreibe den Output in die Datei
-		try {
-			FileWriter writer = new FileWriter("output.txt");
-			writer.write("Result: " + accumulator.get() + "\n");
-			writer.write("ProgramCounter: " + controllerUnit.getProgramCounter() + "\n");
-			writer.close();
-			System.out.println("Output wurde in die Datei 'output.txt' geschrieben.");
-		} catch (IOException e) {
-			System.out.println("Fehler beim Schreiben in die Datei 'output.txt'");
-			e.printStackTrace();
-		}
+        // Prozessiere das Array der Anweisungen
+        for (int i = 0; i < instructions.length; i++) {
+            String[] cmd = instructions[i].split("\\s+");
+            printer.printStep(controllerUnit.getProgramCounter(), cmd[0], Integer.parseInt(cmd[1]), accumulator.get(), memory);
 
+            controllerUnit.run(cmd[0], Integer.parseInt(cmd[1]));
+        }
 
-	}
+        printer.printFooter(accumulator.get(), controllerUnit.getProgramCounter());
+        System.out.println("Output wurde in die Datei 'output.txt' geschrieben.");
+    }
+
+	
 }
 
 
