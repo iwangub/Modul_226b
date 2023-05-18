@@ -5,6 +5,11 @@ import java.io.IOException;
 
 public class Program {
 
+	private Memory memory;
+	private Accumulator accumulator;
+	private ControllerUnit contollerUnit;
+	private Printer printer;
+
 	public Program(String filename, String[] instructions, String[] mem) {
 
 		Memory memory = new Memory(16);

@@ -1,8 +1,10 @@
 Programmstart:
 Programmcounter	Instruction	Operand	Accumulator	Memory
 ----------------------------------------------------------------
-0		LDA		1		0	1 2 3 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0		HLT		0	0		0 1 2 3 0 0 0 0 0 0 0 0 0 0 0 0 
+1		LDA		1	1		0 1 2 3 0 0 0 0 0 0 0 0 0 0 0 0 
+2		ADD		1	2		0 1 2 3 0 0 0 0 0 0 0 0 0 0 0 0 
 ----------------------------------------------------------------
 Programmende:
-Result: 2
-Programmcounter: 1
+Accumulator: 2
+Programmcounter: 2

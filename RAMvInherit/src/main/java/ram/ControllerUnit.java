@@ -2,15 +2,15 @@ package ram;
 
 public class ControllerUnit {
 
-	private Memory memory;
+	private RAMComponent memory;
 	private Accumulator accumulator;
 	private int programCounter;
 
-	public ControllerUnit(Memory memory, Accumulator accumulator) {
-		this.memory = memory;
-		this.accumulator = accumulator;
-		this.programCounter = 0;
-	}
+    public ControllerUnit(RAMComponent memory, Accumulator accumulator) {
+        this.memory = memory;
+        this.accumulator = accumulator;
+        this.programCounter = 0;
+    }
 
 	public void lda(int address) {
 		accumulator.load(memory.read(address));
