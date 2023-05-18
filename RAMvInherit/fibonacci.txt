@@ -13,8 +13,8 @@ Programmcounter	Instruction	Operand	Accumulator	Memory
 10		STA		0	5		5 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 
 11		JMZ		12	5		5 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 
 0		JMP		0	5		5 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 
-0		HLT		0	5		5 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 
+-1		HLT		0	5		5 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 
 ----------------------------------------------------------------
 Programmende:
 Accumulator: 5
-Programmcounter: 0
+Programmcounter: -1

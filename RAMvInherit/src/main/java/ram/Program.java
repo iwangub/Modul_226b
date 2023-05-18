@@ -3,6 +3,10 @@ package ram;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Die Program-Klasse repräsentiert ein Programm, das im RAM ausgeführt werden
+ * kann.
+ */
 public class Program {
 
 	private Memory memory;
@@ -10,6 +14,13 @@ public class Program {
 	private ControllerUnit contollerUnit;
 	private Printer printer;
 
+	/**
+	 * Konstruktor für die Program-Klasse.
+	 *
+	 * @param filename     Der Dateiname, in den gedruckt werden soll.
+	 * @param instructions Die Anweisungen des Programms.
+	 * @param mem          Der Speicherinhalt.
+	 */
 	public Program(String filename, String[] instructions, String[] mem) {
 
 		Memory memory = new Memory(16);

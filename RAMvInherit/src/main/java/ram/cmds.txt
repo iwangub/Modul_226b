@@ -1,1 +1,0 @@
-"LDA 1", "ADD 1", "ADD 1", "JMP 0", "STA 1"
