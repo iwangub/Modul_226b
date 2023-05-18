@@ -10,7 +10,7 @@ public class User {
 	public static void main(String[] args) {
 
 		// TESTING START
-		String[] cmdsAddition = { "HLT 0", "LDA 2", // Lade die Zahl 10 in den Akkumulator
+		String[] cmdsAddition = {"JMZ 1" ,"HLT 0", "LDA 2", // Lade die Zahl 10 in den Akkumulator
 				"ADD 3", // Addiere die Zahl 25 zum Akkumulator
 				"STA 4", // Speichere das Ergebnis im Speicherplatz 4
 				"HLT 0" // Halte das Programm
@@ -28,7 +28,7 @@ public class User {
 				"STA 1", // Speichern des Divisors im Speicher (Adresse 1)
 				"LDA 0", // Laden des Dividenden aus dem Speicher
 				"SUB 1", // Subtrahieren des Divisors vom Dividenden
-				"JMZ 12", // Springen zur Adresse 12, wenn das Ergebnis 0 ist (Division abgeschlossen)
+				"JMZ 11", // Springen zur Adresse 11, wenn das Ergebnis 0 ist (Division abgeschlossen)
 				"LDA 3", // Laden des Zwischenergebnisses (Quotient)
 				"ADD 4", // Addieren 1 zum Zwischenergebnis
 				"STA 3", // Speichern des aktualisierten Zwischenergebnisses (Quotient)
@@ -88,6 +88,29 @@ public class User {
 
 		Program fibonacciProgram = new Program("fibonacci.txt", cmdsFibonacci, memFibonacci);
 		// FIBONACCCI START
+		
+		// jhe stylez
+		
+		String[] cmdsJhe = { "HLT 0", // 
+				"LDA 0", // 
+				"SUB 1", // e
+				"STA 0", //Wert (1) in den Akkumulator
+				"LDA 2", //acci-Wert im Speicherplatz für das nächste
+							// Fibonacci-Paar
+				"ADD 3", // Lade das nächste Fibonacci-Paar in den Akkumulator
+				"STA 2", // Speichere das nächste Fibonacci-Paar im Speicherplatz für das aktuelle
+							// Fibonacci-Paar
+				"LDA 0", // Lade den Zähler für die Fibonacci-Berechnung (0) in den Akkumulator
+				"JMZ 10", // Verringere den Zähler um 1
+				"JMP 1", // Speichere den neuen Zählerwert im Speicherplatz
+				"LDA 2", // Wenn der Zähler 0 ist, springe zu Anweisung 12 (Programmende)
+				"JMP 0", // Springe zu Anweisung 0 (nächster Fibonacci-Schritt)
+				"HLT 0" // 
+		};
+		String[] memJhe = { "10", "2", "0", "1" }; //
+
+		Program jheLol = new Program("mr.Jhe.txt", cmdsJhe, memJhe);
+				
 
 	}
 

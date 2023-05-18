@@ -52,4 +52,5 @@ public class Program {
 		printer.printFooter(accumulator.get(), controllerUnit.getProgramCounter());
 		System.out.println("Output wurde in die Datei '" + filename + "' geschrieben.");
 	}
+
 }

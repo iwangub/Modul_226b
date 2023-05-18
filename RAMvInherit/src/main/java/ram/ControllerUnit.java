@@ -28,17 +28,15 @@ public class ControllerUnit {
 	 * @param address Die Adresse, von der der Wert geladen werden soll.
 	 */
 	/*
+	 * public void lda(int address) { accumulator.load(memory.read(address));
+	 * programCounter++; }
+	 */
 	public void lda(int address) {
-		accumulator.load(memory.read(address));
+		int value = memory.read(address);
+		accumulator.load(value);
 		programCounter++;
 	}
-*/
-    public void lda(int address) {
-        int value = memory.read(address);
-        accumulator.load(value);
-        programCounter++;
-    }
-    
+
 	/**
 	 * Lädt den Wert an der indirekt angegebenen Adresse in den Akkumulator.
 	 *
@@ -138,45 +136,71 @@ public class ControllerUnit {
 	 * @param operand Der Operand des Befehls.
 	 */
 	public void run(String cmd, int operand) {
+
 		switch (cmd) {
 		case "LDA":
-			// LDA
+			// Überprüfen, ob der Operand eine gültige Adresse ist
+			if (operand < 0 || operand >= memory.getMemorySize()) {
+				throw new IllegalArgumentException("Ungültige Speicheradresse: " + operand);
+			}
 			lda(operand);
 			break;
 		case "LDI":
-			// LDI
+			// Überprüfen, ob der Operand eine gültige Adresse ist
+			if (operand < 0 || operand >= memory.getMemorySize()) {
+				throw new IllegalArgumentException("Ungültige Speicheradresse: " + operand);
+			}
 			ldi(operand);
 			break;
 		case "STA":
-			// STA
+			// Überprüfen, ob der Operand eine gültige Adresse ist
+			if (operand < 0 || operand >= memory.getMemorySize()) {
+				throw new IllegalArgumentException("Ungültige Speicheradresse: " + operand);
+			}
 			sta(operand);
 			break;
 		case "STI":
-			// STI
+			// Überprüfen, ob der Operand eine gültige Adresse ist
+			if (operand < 0 || operand >= memory.getMemorySize()) {
+				throw new IllegalArgumentException("Ungültige Speicheradresse: " + operand);
+			}
 			sti(operand);
 			break;
 		case "ADD":
-			// ADD
+			// Überprüfen, ob der Operand eine gültige Adresse ist
+			if (operand < 0 || operand >= memory.getMemorySize()) {
+				throw new IllegalArgumentException("Ungültige Speicheradresse: " + operand);
+			}
 			add(operand);
 			break;
 		case "SUB":
-			// SUB
+			// Überprüfen, ob der Operand eine gültige Adresse ist
+			if (operand < 0 || operand >= memory.getMemorySize()) {
+				throw new IllegalArgumentException("Ungültige Speicheradresse: " + operand);
+			}
 			sub(operand);
 			break;
 		case "JMP":
-			// JMP
+			// Überprüfen, ob der Operand eine gültige Adresse ist
+			if (operand < 0 || operand >= memory.getMemorySize()) {
+				throw new IllegalArgumentException("Ungültige Sprungadresse: " + operand);
+			}
 			jmp(operand);
 			break;
 		case "JMZ":
-			// JMZ
+			// Überprüfen, ob der Operand eine gültige Adresse ist
+			if (operand < 0 || operand >= memory.getMemorySize()) {
+				throw new IllegalArgumentException("Ungültige Sprungadresse: " + operand);
+			}
 			jmz(operand);
 			break;
 		case "HLT":
-			// HLT
 			hlt();
 			break;
 		default:
-			throw new IllegalArgumentException("Unknown command: " + cmd);
+			throw new IllegalArgumentException("Unbekannter Befehl: " + cmd);
 		}
+
 	}
+
 }

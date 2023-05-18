@@ -1,6 +1,7 @@
 Programmstart:
 Programmcounter	Instruction	Operand	Accumulator	Memory
 ----------------------------------------------------------------
+1		JMZ		1	0		10 25 10 25 0 0 0 0 0 0 0 0 0 0 0 0 
 -1		HLT		0	0		10 25 10 25 0 0 0 0 0 0 0 0 0 0 0 0 
 0		LDA		2	10		10 25 10 25 0 0 0 0 0 0 0 0 0 0 0 0 
 1		ADD		3	35		10 25 10 25 0 0 0 0 0 0 0 0 0 0 0 0 
