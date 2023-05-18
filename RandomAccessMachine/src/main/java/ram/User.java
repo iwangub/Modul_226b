@@ -58,7 +58,7 @@ public class User {
 				"JMP 5", // Springen zur Adresse 5 (erneute Durchführung der Division)
 				"HLT 0" // Beenden des Programms
 		};
-		String[] memDivision = { "21", "7", "0", "0", "0" };
+		String[] memDivision = { "0", "21", "7", "0", "0", "0" };
 
 		Program divisionProgram = new Program("division.txt", cmdsDivision, memDivision);
 		;
@@ -83,32 +83,11 @@ public class User {
 				"JMP 5", // Springen zur Adresse 5 (erneute Durchführung der Multiplikation)
 				"HLT 0" // Beenden des Programms
 		};
-		String[] memMultiplication = { "2", "3", "0", "0", "0", "1" };
+		String[] memMultiplication = { "0" ,"2", "3", "0", "0", "0", "1" };
 
 		Program multiplicationProgram = new Program("multiplication.txt", cmdsMultiplication, memMultiplication);
 		// Multiplikation Ende
 
-		// FIBONACCCI START
-		String[] cmdsFibonacci = { "LDA 2", // Lade den ersten Fibonacci-Wert (6) in den Akkumulator
-				"ADD 3", // Addiere den zweiten Fibonacci-Wert (1) zum Akkumulator
-				"STA 4", // Speichere das Ergebnis im Speicherplatz für das nächste Fibonacci-Paar
-				"LDA 3", // Lade den zweiten Fibonacci-Wert (1) in den Akkumulator
-				"STA 2", // Speichere den zweiten Fibonacci-Wert im Speicherplatz für das nächste
-							// Fibonacci-Paar
-				"LDA 4", // Lade das nächste Fibonacci-Paar in den Akkumulator
-				"STA 3", // Speichere das nächste Fibonacci-Paar im Speicherplatz für das aktuelle
-							// Fibonacci-Paar
-				"LDA 0", // Lade den Zähler für die Fibonacci-Berechnung (0) in den Akkumulator
-				"SUB 1", // Verringere den Zähler um 1
-				"STA 0", // Speichere den neuen Zählerwert im Speicherplatz
-				"JMZ 12", // Wenn der Zähler 0 ist, springe zu Anweisung 12 (Programmende)
-				"JMP 0", // Springe zu Anweisung 0 (nächster Fibonacci-Schritt)
-				"HLT 0" // Halte das Programm
-		};
-		String[] memFibonacci = { "6", "1", "1", "0", "0" }; // Speicherplatz 0 für den Zähler reservieren
-
-		Program fibonacciProgram = new Program("fibonacci.txt", cmdsFibonacci, memFibonacci);
-		// FIBONACCCI START
 	}
 
 }

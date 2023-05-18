@@ -1,0 +1,11 @@
+Programmstart:
+Programmcounter	Instruction	Operand	Accumulator	Memory
+----------------------------------------------------------------
+1		LDA		0	20		20 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+2		SUB		1	15		20 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+3		STA		2	15		20 5 15 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-1		HLT		0	15		20 5 15 0 0 0 0 0 0 0 0 0 0 0 0 0 
+----------------------------------------------------------------
+Programmende:
+Accumulator: 15
+Programmcounter: -1
